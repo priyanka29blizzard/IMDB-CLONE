@@ -44,7 +44,7 @@ function WatchList() {
     let temp = favourites.map((movie) => genreids[movie.genre_ids[0]])
     temp = new Set(temp) // it prevents duplicate value
     setGenres(["All Genres", ...temp])
-  }, [favourites])
+  }, [favourites,genreids])
 
   let filteredArray = []
 
@@ -147,7 +147,7 @@ function WatchList() {
                   />
 
                   <div> Ratings</div>
-                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png' 
+                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png' alt=""
                   className='ml-1'
                   onClick={()=>{
                     setRating(-1);
@@ -168,7 +168,7 @@ function WatchList() {
 
 
                   <div> Popularity</div>
-                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png' 
+                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png' alt=""
                   className='ml-1 mr-1'
                   onClick={()=>{
                     setPopularity(-1);
