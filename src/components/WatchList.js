@@ -44,7 +44,7 @@ function WatchList() {
     let temp = favourites.map((movie) => genreids[movie.genre_ids[0]])
     temp = new Set(temp) // it prevents duplicate value
     setGenres(["All Genres", ...temp])
-  }, [favourites,genreids])
+  }, [favourites])
 
   let filteredArray = []
 
