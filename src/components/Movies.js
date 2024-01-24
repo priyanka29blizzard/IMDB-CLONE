@@ -39,7 +39,7 @@ function Movies() {
 
     const removeFromWatchList = (movie) => {
         const filteredWatchList = watchList.filter((m) => {
-            return m.id != movie.id
+            return m.id !== movie.id
         })
 
         setWatchList(filteredWatchList)
@@ -103,7 +103,7 @@ function Movies() {
                         >
 
                             {
-                                watchList.includes(movie) == false ? (
+                                watchList.includes(movie) === false ? (
                                     <div onClick={() => { addToWatchList(movie) }} > 🤍
                                     </div>
                                 ) : (

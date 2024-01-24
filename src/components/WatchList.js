@@ -51,18 +51,18 @@ function WatchList() {
   //genreFilter
 
   filteredArray =
-    currGenre == 'All Genres'
-      ? favourites : favourites.filter((movie) => genreids[movie.genre_ids[0]] == currGenre)
+    currGenre === 'All Genres'
+      ? favourites : favourites.filter((movie) => genreids[movie.genre_ids[0]] === currGenre)
 
       //sorting with respect to ratings
 
-      if(rating == -1){
+      if(rating === -1){
         filteredArray = filteredArray.sort(function(objA,objB){
           return objB.vote_average-objA.vote_average
         })
       }
 
-      if(rating == 1){
+      if(rating === 1){
         filteredArray = filteredArray.sort(function(objA,objB){
           return objA.vote_average-objB.vote_average
         })
@@ -70,13 +70,13 @@ function WatchList() {
 
       //Sorting with respect to popularity
 
-      if(popularity== -1){
+      if(popularity=== -1){
         filteredArray = filteredArray.sort(function(objA,objB){
           return objB.vote_average-objA.vote_average
         })
       }
 
-      if(popularity == 1){
+      if(popularity === 1){
         filteredArray = filteredArray.sort(function(objA,objB){
           return objA.vote_average-objB.vote_average
         })
@@ -92,7 +92,7 @@ function WatchList() {
       //for making delete button work
 
       const del = (movie) => {
-        let newArray = favourites.filter((m) => m.id != movie.id)
+        let newArray = favourites.filter((m) => m.id !== movie.id)
         setFavourites([...newArray])
         localStorage.setItem('imdb',JSON.stringify(newArray))
 
@@ -107,7 +107,7 @@ function WatchList() {
       <div className='mt-6 flex space-x-2 justify-center'>
         {genres.map((genre) => {
           return <button className={
-            currGenre == genre
+            currGenre === genre
               ? "m-2 text-lg p-1 px-2 bg-blue-400 text-white rounded-xl font-bold"
               : "m-2 text-lg p-1 px-2 bg-gray-400 hover:bg-blue-400 text-white rounded-xl font-bold"
           }
@@ -139,7 +139,7 @@ function WatchList() {
               <th className='px-6 py-4 font-medium text-gray-900'>Name</th>
               <th>
                 <div className='flex '>
-                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png' 
+                  <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png' alt=""
                   className='mr-1' 
                   onClick={()=>{
                     setRating(1);
@@ -159,7 +159,7 @@ function WatchList() {
 
               <th>
                 <div className='flex'>
-                <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png' 
+                <img src='https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png' alt=""
                   className='mr-1 ml-1' 
                   onClick={()=>{
                     setPopularity(1);
@@ -196,7 +196,7 @@ function WatchList() {
                   <td className=' flex items-center px-6 py-4 font-normal text-gray-900 space-x-2'>
 
                     <img className='h-[6rem]  w-[10rem] object-fit'
-                      src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+                      src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}  alt ="" />
 
                     <div className='font-medium text-gray-700 text-sm'> {movie.title}</div>
                   </td>
@@ -210,7 +210,7 @@ function WatchList() {
                   </td>
 
                   <td className='pl-2 py-4'>
-                    {genreids[movie.genre_ids[0]]}  //ask how this movie 53-54
+                    {genreids[movie.genre_ids[0]]}  
                   </td>
 
                   <td>
